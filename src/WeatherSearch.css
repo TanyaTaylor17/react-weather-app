@@ -1,0 +1,93 @@
+/** @format */
+
+.City-Search #city-search {
+  margin: 0 auto;
+  max-width: 70%;
+  padding: 3px 10px;
+}
+
+.City-Search .btn {
+  border-radius: 10px;
+}
+
+.Current-Conditions #current {
+  margin: 0 auto;
+  color: #5d54a4;
+  font-size: 20px;
+  padding: 20px;
+  border: #fbc2eb;
+  border-radius: 10px;
+}
+
+.Current-Conditions #current p strong {
+  font-size: 25px;
+}
+
+.Current-Conditions #selected-city-name {
+  font-size: 30px;
+}
+
+.Current-Conditions #description {
+  text-transform: capitalize;
+}
+
+.Current-Conditions .weather-conditions {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.Current-Conditions .last-updated {
+  margin: 0 auto;
+  color: #5d54a4;
+  font-size: 17px;
+  padding: 10px;
+  border: #fbc2eb;
+  border-radius: 10px;
+}
+
+.Current-Conditions #current-temp {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.Current-Conditions .active {
+  color: #5d54a4;
+  font-weight: bold;
+  cursor: default;
+}
+
+.Current-Conditions .active:hover {
+  text-decoration: none;
+  color: #5d54a4;
+  font-weight: bold;
+  cursor: default;
+}
+
+.Current-Conditions .units {
+  position: relative;
+  font-size: 80%;
+  top: -15px;
+}
+
+.Current-Conditions .unit {
+  position: relative;
+  font-size: 70%;
+  top: -5px;
+}
+
+.Current-Conditions #weather-icon {
+  padding: 0 auto;
+}
+
+.Current-Conditions #current-temp-details {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 80%;
+}
+
+.Current-Conditions .d-inline {
+  padding: 40px;
+  margin: 0 auto;
+  text-align: center;
+}
