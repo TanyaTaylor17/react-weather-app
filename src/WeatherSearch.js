@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 import "bootstrap/dist/css/bootstrap.css";
 import "./WeatherSearch.css";
 
-export default function WeatherSearch() {
-  const [query, setQuery] = useState(null);
-  const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState({});
+export default function WeatherSearch(props) {
+  const [query, setQuery] = useState(props.defaultCity);
+  const [weather, setWeather] = useState({ loaded: false });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,8 +18,8 @@ export default function WeatherSearch() {
   }
 
   function handleResponse(response) {
-    setLoaded(true);
     setWeather({
+      loaded: true,
       city: response.data.name,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
@@ -115,7 +115,7 @@ export default function WeatherSearch() {
                   id="weather-icon"
                 />
               </div>
-              <span id="description">
+              <span id="description" className="text-capitalize">
                 <strong>{weather.description}</strong>
               </span>
               <br />
@@ -219,7 +219,7 @@ export default function WeatherSearch() {
     </div>
   );
 
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div>
         {form}
@@ -227,6 +227,18 @@ export default function WeatherSearch() {
       </div>
     );
   } else {
-    return form;
+    let apiKey = `771f97361711452c12e62a313b27bcc9`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(handleResponse);
+
+    return (
+      <Loader
+        type="ThreeDots"
+        color="#5d54a4"
+        height={80}
+        width={80}
+        timeout={4000}
+      />
+    );
   }
 }

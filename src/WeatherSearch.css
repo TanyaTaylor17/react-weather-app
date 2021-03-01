@@ -10,7 +10,7 @@
   border-radius: 10px;
 }
 
-.Current-Conditions #current {
+.Current-Conditions {
   margin: 0 auto;
   color: #5d54a4;
   font-size: 20px;
@@ -25,10 +25,6 @@
 
 .Current-Conditions #selected-city-name {
   font-size: 30px;
-}
-
-.Current-Conditions #description {
-  text-transform: capitalize;
 }
 
 .Current-Conditions .weather-conditions {
