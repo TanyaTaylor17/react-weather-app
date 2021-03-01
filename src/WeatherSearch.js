@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
+import FormattedDateTime from "./FormattedDateTime";
 import "bootstrap/dist/css/bootstrap.css";
 import "./WeatherSearch.css";
 
@@ -30,49 +31,12 @@ export default function WeatherSearch(props) {
       feelsLike: response.data.main.feels_like,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       description: response.data.weather[0].description,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
   function updateQuery(event) {
     setQuery(event.target.value);
-  }
-
-  let now = new Date();
-
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[now.getDay()];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[now.getMonth()];
-  let date = now.getDate();
-  let year = now.getFullYear();
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
   }
 
   let currentWeather = (
@@ -94,12 +58,8 @@ export default function WeatherSearch(props) {
                   </small>
                 </em>
                 <br />
-                <span id="selected-city-date">
-                  {day} {date} {month} {year}
-                </span>
-                <br />
-                <span id="selected-city-time">
-                  {hours}:{minutes}
+                <span id="selected-city-date-time">
+                  <FormattedDateTime date={weather.date} />
                 </span>
               </div>
             </p>
