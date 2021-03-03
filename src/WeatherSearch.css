@@ -21,6 +21,7 @@
 
 .Current-Conditions #current p strong {
   font-size: 25px;
+  padding-bottom: 20px;
 }
 
 .Current-Conditions #selected-city-name {
@@ -71,8 +72,11 @@
   top: -5px;
 }
 
-.Current-Conditions #weather-icon {
+.Current-Conditions .weather-icon {
   padding: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transform: scale(2);
 }
 
 .Current-Conditions #current-temp-details {

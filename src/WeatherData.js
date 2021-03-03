@@ -2,6 +2,7 @@
 
 import React from "react";
 import FormattedDateTime from "./FormattedDateTime";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherData(props) {
   return (
@@ -35,10 +36,9 @@ export default function WeatherData(props) {
               <p>
                 <strong>Current Conditions:</strong>
                 <div className="weather-icon">
-                  <img
-                    src={props.data.icon}
+                  <WeatherIcon
+                    code={props.data.icon}
                     alt={props.data.description}
-                    id="weather-icon"
                   />
                 </div>
                 <span id="description" className="text-capitalize">

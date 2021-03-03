@@ -33,7 +33,7 @@ export default function WeatherSearch(props) {
       maxTemp: response.data.main.temp_max,
       minTemp: response.data.main.temp_min,
       feelsLike: response.data.main.feels_like,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
     });
