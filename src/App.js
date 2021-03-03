@@ -41,6 +41,22 @@ export default function App() {
               Netlify
             </a>
           </small>
+          <p>
+            <small>
+              Animated weather icons by{" "}
+              <a
+                href="https://www.amcharts.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                amCharts
+              </a>
+              {" & "}
+              <a href="https://bas.dev/" target="_blank" rel="noreferrer">
+                Bas Milius
+              </a>
+            </small>
+          </p>
         </p>
       </footer>
     </div>
