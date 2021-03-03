@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
-import FormattedDateTime from "./FormattedDateTime";
+import WeatherData from "./WeatherData";
 import "bootstrap/dist/css/bootstrap.css";
 import "./WeatherSearch.css";
 
@@ -11,11 +11,15 @@ export default function WeatherSearch(props) {
   const [query, setQuery] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ loaded: false });
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function search() {
     let apiKey = `771f97361711452c12e62a313b27bcc9`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${apiKey}`;
     axios.get(url).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function handleResponse(response) {
@@ -38,107 +42,6 @@ export default function WeatherSearch(props) {
   function updateQuery(event) {
     setQuery(event.target.value);
   }
-
-  let currentWeather = (
-    <div className="container">
-      <div className="Current-Conditions">
-        <div className="row">
-          <div className="col-4" id="selected-city">
-            <p>
-              <br />
-              <br />
-              <span id="selected-city-name">
-                <strong>{weather.city}</strong>
-              </span>
-              <br />
-              <div className="last-updated">
-                <em>
-                  <small>
-                    <strong>Last Updated:</strong>
-                  </small>
-                </em>
-                <br />
-                <span id="selected-city-date-time">
-                  <FormattedDateTime date={weather.date} />
-                </span>
-              </div>
-            </p>
-          </div>
-
-          <div className="col-4" id="current-conditions">
-            <p>
-              <strong>Current Conditions:</strong>
-              <div className="weather-icon">
-                <img
-                  src={weather.icon}
-                  alt={weather.description}
-                  id="weather-icon"
-                />
-              </div>
-              <span id="description" className="text-capitalize">
-                <strong>{weather.description}</strong>
-              </span>
-              <br />
-              <span id="current-temp">{Math.round(weather.temperature)}</span>
-              <span className="units">
-                <span id="celsius-link" class="active">
-                  °C
-                </span>{" "}
-                |<span id="fahrenheit-link">°F</span>
-              </span>
-            </p>
-          </div>
-
-          <div className="col-4">
-            <br />
-            <br />
-            <ul className="weather-conditions">
-              <li>
-                <strong>Humidity: </strong>
-                <span id="humidity">{weather.humidity}</span>%
-              </li>
-              <li>
-                <strong>Wind: </strong>
-                <span id="wind">{weather.wind}</span> m/s{" "}
-              </li>
-              <li>
-                <strong>Pressure: </strong>
-                <span id="pressure">{weather.pressure}</span>{" "}
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="row" id="current-temp-details">
-          <div className="col">
-            <ul className="list-unstyled">
-              <li className="d-inline">
-                <strong>Feels Like: </strong>
-                <span id="feels-like">{Math.round(weather.feelsLike)}°C</span>
-                <span className="unit" id="feels-like-unit">
-                  {" "}
-                </span>
-              </li>
-              <li className="d-inline">
-                <strong>Max: </strong>
-                <span id="max-temp">{Math.round(weather.maxTemp)}°C</span>
-                <span className="unit" id="max-temp-unit">
-                  {" "}
-                </span>{" "}
-              </li>
-              <li className="d-inline">
-                <strong>Min: </strong>
-                <span id="min-temp">{Math.round(weather.minTemp)}°C</span>
-                <span className="unit" id="min-temp-unit">
-                  {" "}
-                </span>{" "}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 
   let form = (
     <div className="container">
@@ -183,14 +86,11 @@ export default function WeatherSearch(props) {
     return (
       <div>
         {form}
-        {currentWeather}
+        <WeatherData data={weather} />
       </div>
     );
   } else {
-    let apiKey = `771f97361711452c12e62a313b27bcc9`;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${apiKey}`;
-    axios.get(url).then(handleResponse);
-
+    search();
     return (
       <Loader
         type="ThreeDots"
