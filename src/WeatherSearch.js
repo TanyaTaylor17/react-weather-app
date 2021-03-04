@@ -43,6 +43,23 @@ export default function WeatherSearch(props) {
     setQuery(event.target.value);
   }
 
+  function getCurrentCoords(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showCurrentCoords);
+  }
+
+  function showCurrentCoords(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let apiKey = "771f97361711452c12e62a313b27bcc9";
+    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+    axios
+      .get(
+        `${apiUrl}lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
+      )
+      .then(handleResponse);
+  }
+
   let form = (
     <div className="container">
       <div className="City-Search">
@@ -71,10 +88,11 @@ export default function WeatherSearch(props) {
             <div />
 
             <input
-              type="submit"
+              type="button"
               id="current-location"
               className="btn btn-block btn-outline-success btn-sm text-wrap"
               value="📍 My Current Location"
+              onClick={getCurrentCoords}
             />
           </div>
         </form>
