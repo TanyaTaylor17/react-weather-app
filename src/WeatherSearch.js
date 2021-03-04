@@ -57,7 +57,7 @@ export default function WeatherSearch(props) {
               id="searched-city-name"
               placeholder="Enter city here"
               className="form-control"
-              autocomplete="off"
+              autoComplete="off"
               onChange={updateQuery}
             />
           </div>
@@ -73,7 +73,7 @@ export default function WeatherSearch(props) {
             <input
               type="submit"
               id="current-location"
-              class="btn btn-block btn-outline-success btn-sm text-wrap"
+              className="btn btn-block btn-outline-success btn-sm text-wrap"
               value="📍 My Current Location"
             />
           </div>

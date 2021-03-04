@@ -1,63 +1,56 @@
 /** @format */
 
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { Container, Col, Row } from "react-bootstrap";
 import FormattedDateTime from "./FormattedDateTime";
 import WeatherIcon from "./WeatherIcon";
+import TemperatureConversion from "./TemperatureConversion";
 
 export default function WeatherData(props) {
   return (
     <div className="WeatherData">
-      <div className="container">
+      <Container>
         <div className="Current-Conditions">
-          <div className="row">
-            <div className="col-4" id="selected-city">
-              <p>
+          <Row>
+            <Col id="selected-city">
+              <br />
+              <br />
+              <span id="selected-city-name">
+                <strong>{props.data.city}</strong>
+              </span>
+              <br />
+              <span className="last-updated">
+                <em>
+                  <small>
+                    <strong>Last Updated:</strong>
+                  </small>
+                </em>
                 <br />
-                <br />
-                <span id="selected-city-name">
-                  <strong>{props.data.city}</strong>
+                <span id="selected-city-date-time">
+                  <FormattedDateTime date={props.data.date} />
                 </span>
-                <br />
-                <div className="last-updated">
-                  <em>
-                    <small>
-                      <strong>Last Updated:</strong>
-                    </small>
-                  </em>
-                  <br />
-                  <span id="selected-city-date-time">
-                    <FormattedDateTime date={props.data.date} />
-                  </span>
-                </div>
-              </p>
-            </div>
+              </span>
+            </Col>
 
-            <div className="col-4" id="current-conditions">
-              <p>
+            <Col id="current-conditions">
+              <div>
                 <strong>Current Conditions:</strong>
+
                 <div className="weather-icon">
                   <WeatherIcon
                     code={props.data.icon}
                     alt={props.data.description}
                   />
                 </div>
-                <span id="description" className="text-capitalize">
-                  <strong>{props.data.description}</strong>
-                </span>
-                <br />
-                <span id="current-temp">
-                  {Math.round(props.data.temperature)}
-                </span>
-                <span className="units">
-                  <span id="celsius-link" class="active">
-                    °C
-                  </span>{" "}
-                  |<span id="fahrenheit-link">°F</span>
-                </span>
-              </p>
-            </div>
 
-            <div className="col-4">
+                <span id="description" className="text-capitalize">
+                  {props.data.description}
+                </span>
+              </div>
+            </Col>
+
+            <Col>
               <br />
               <br />
               <ul className="weather-conditions">
@@ -74,40 +67,17 @@ export default function WeatherData(props) {
                   <span id="pressure">{props.data.pressure}</span>{" "}
                 </li>
               </ul>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="row" id="current-temp-details">
-            <div className="col">
-              <ul className="list-unstyled">
-                <li className="d-inline">
-                  <strong>Feels Like: </strong>
-                  <span id="feels-like">
-                    {Math.round(props.data.feelsLike)}°C
-                  </span>
-                  <span className="unit" id="feels-like-unit">
-                    {" "}
-                  </span>
-                </li>
-                <li className="d-inline">
-                  <strong>Max: </strong>
-                  <span id="max-temp">{Math.round(props.data.maxTemp)}°C</span>
-                  <span className="unit" id="max-temp-unit">
-                    {" "}
-                  </span>{" "}
-                </li>
-                <li className="d-inline">
-                  <strong>Min: </strong>
-                  <span id="min-temp">{Math.round(props.data.minTemp)}°C</span>
-                  <span className="unit" id="min-temp-unit">
-                    {" "}
-                  </span>{" "}
-                </li>
-              </ul>
-            </div>
-          </div>
+          <TemperatureConversion
+            currentTempCelsius={props.data.temperature}
+            maxTempCelsius={props.data.maxTemp}
+            minTempCelsius={props.data.minTemp}
+            feelsLikeCelsius={props.data.feelsLike}
+          />
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
