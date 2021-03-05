@@ -32,12 +32,15 @@ export default function App() {
               Tanya Taylor
             </a>
             {"  & "}
-            Hosted by{" "}
             <a
               href="https://patient-porcupine-1713.netlify.app/"
               target="_blank"
               rel="noreferrer"
             >
+              Hosted
+            </a>{" "}
+            by{" "}
+            <a href="https://www.netlify.com/" target="_blank" rel="noreferrer">
               Netlify
             </a>
           </small>

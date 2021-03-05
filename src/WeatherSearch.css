@@ -78,9 +78,9 @@
   top: -5px;
 }
 
-.Current-Conditions #current-conditions .weather-icon {
+#current-conditions .weather-icon {
   padding: 0 auto;
-  padding-top: 30px;
+  padding-top: 40px;
   padding-bottom: 30px;
   transform: scale(2.5);
   display: block;
