@@ -1,0 +1,28 @@
+/** @format */
+
+.weather-forecast {
+  color: #5d54a4;
+  padding: 10px;
+  text-transform: capitalize;
+  padding-bottom: 30px;
+}
+
+.weather-forecast #forecast-header {
+  padding-top: 5px;
+  padding-bottom: 7px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #5d54a4;
+}
+
+.weather-forecast .hourly-forecast {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+
+hr {
+  background-color: #a26dcacc;
+  height: 2px;
+  max-width: 75%;
+  border-radius: 20px;
+}

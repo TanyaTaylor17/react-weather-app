@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 import WeatherData from "./WeatherData";
+import WeatherAdvice from "./WeatherAdvice";
+import WeatherForecast from "./WeatherForecast";
 import "bootstrap/dist/css/bootstrap.css";
 import "./WeatherSearch.css";
 
@@ -23,7 +25,6 @@ export default function WeatherSearch(props) {
   }
 
   function handleResponse(response) {
-    console.log(response);
     setWeather({
       loaded: true,
       city: response.data.name,
@@ -108,6 +109,8 @@ export default function WeatherSearch(props) {
       <div>
         {form}
         <WeatherData data={weather} />
+        <WeatherAdvice data={weather} />
+        <WeatherForecast query={weather.city} />
       </div>
     );
   } else {

@@ -3,14 +3,14 @@
 import React from "react";
 
 export default function WeatherAdvice(props) {
-  let temperature = props.temperature;
-  let weather = props.type;
-  let time = props.time;
+  let temperature = Math.round(props.data.temperature);
+  let weather = props.data.type;
+  let time = props.data.icon;
   let day = time.includes("d");
 
   if (temperature >= 25 && day === true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>
           Warning: It’s hot today, don’t forget to carry sunscreen and water! ☀
         </h5>
@@ -18,25 +18,25 @@ export default function WeatherAdvice(props) {
     );
   } else if (temperature >= 25 && day !== true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Warning: It’s hot tonight, don't forget to stay hydrated! 🥤</h5>
       </div>
     );
   } else if (temperature >= 20 && day === true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Advice: It’s warm today, remember to stay hydrated! 😎</h5>
       </div>
     );
   } else if (temperature >= 20 && day !== true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Advice: It’s warm tonight, remember to stay hydrated! 🥤</h5>
       </div>
     );
   } else if (temperature <= 0 || weather === "Snow") {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>
           Advice: Winter coat{" & "}accessories required – it’s freezing out
           there! ⛄
@@ -45,25 +45,25 @@ export default function WeatherAdvice(props) {
     );
   } else if (temperature <= 5) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Advice: Wrap up warm – it’s cold out there! ❄</h5>
       </div>
     );
   } else if (weather === "Rain" || weather === "Drizzle") {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Advice: Take an umbrella just in case! ☔</h5>
       </div>
     );
   } else if (weather === "Thunderstorm" && day === true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Warning: There are thunderstorms forecast today! 🌩</h5>
       </div>
     );
   } else if (weather === "Thunderstorm" && day !== true) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>Warning: There are thunderstorms forecast tonight! 🌩</h5>
       </div>
     );
@@ -80,7 +80,7 @@ export default function WeatherAdvice(props) {
     weather === "Tornado"
   ) {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>
           Warning: Potentially hazardous weather conditions – be safe and
           sensible! ⚠
@@ -89,7 +89,7 @@ export default function WeatherAdvice(props) {
     );
   } else {
     return (
-      <div>
+      <div className="weather-advice">
         <h5>
           Advice: It's always good to be prepared - check the forecast below
           before you head out! 😊
