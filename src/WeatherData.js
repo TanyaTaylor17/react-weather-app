@@ -6,6 +6,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import FormattedDateTime from "./FormattedDateTime";
 import WeatherIcon from "./WeatherIcon";
 import TemperatureConversion from "./TemperatureConversion";
+import WeatherAdvice from "./WeatherAdvice";
 
 export default function WeatherData(props) {
   return (
@@ -17,7 +18,9 @@ export default function WeatherData(props) {
               <br />
               <br />
               <span id="selected-city-name">
-                <strong>{props.data.city}</strong>
+                <strong>
+                  {props.data.city}, {props.data.country}
+                </strong>
               </span>
               <br />
               <span className="last-updated">
@@ -75,6 +78,14 @@ export default function WeatherData(props) {
             maxTempCelsius={props.data.maxTemp}
             minTempCelsius={props.data.minTemp}
             feelsLikeCelsius={props.data.feelsLike}
+          />
+        </div>
+
+        <div className="weather-advice">
+          <WeatherAdvice
+            temperature={props.data.temperature}
+            type={props.data.type}
+            time={props.data.icon}
           />
         </div>
       </Container>

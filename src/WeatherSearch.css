@@ -81,7 +81,7 @@
 .Current-Conditions #current-conditions .weather-icon {
   padding: 0 auto;
   padding-top: 30px;
-  padding-bottom: 25px;
+  padding-bottom: 30px;
   transform: scale(2.5);
   display: block;
 }
@@ -95,4 +95,12 @@
 .Current-Conditions #current-temp-details li {
   display: inline;
   padding: 40px;
+}
+
+.weather-advice {
+  font-weight: bold;
+  background: #a26dcacc;
+  color: #2a3d66;
+  padding: 10px;
+  border-radius: 10px;
 }

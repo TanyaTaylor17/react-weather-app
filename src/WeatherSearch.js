@@ -23,9 +23,11 @@ export default function WeatherSearch(props) {
   }
 
   function handleResponse(response) {
+    console.log(response);
     setWeather({
       loaded: true,
       city: response.data.name,
+      country: response.data.sys.country,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -35,6 +37,7 @@ export default function WeatherSearch(props) {
       feelsLike: response.data.main.feels_like,
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
+      type: response.data.weather[0].main,
       date: new Date(response.data.dt * 1000),
     });
   }
