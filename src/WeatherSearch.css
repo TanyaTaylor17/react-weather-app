@@ -80,6 +80,7 @@
 
 #current-conditions .weather-icon {
   padding: 0 auto;
+  margin-top: 10px;
   padding-top: 40px;
   padding-bottom: 30px;
   transform: scale(2.5);
@@ -99,8 +100,8 @@
 
 .weather-advice {
   font-weight: bold;
-  background: #a26dcacc;
-  color: #2a3d66;
+  background: #9d65c9;
+  color: #ecebeb;
   padding: 10px;
   border-radius: 10px;
 }

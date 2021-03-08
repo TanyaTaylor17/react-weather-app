@@ -45,7 +45,8 @@ export default function TemperatureConversion(props) {
               <li>
                 <strong>Feels Like: </strong>
                 <span id="feels-like">
-                  {Math.round(props.feelsLikeCelsius)}°C
+                  {Math.round(props.feelsLikeCelsius)}
+                  <sup>°C</sup>
                 </span>
                 <span className="unit" id="feels-like-unit">
                   {" "}
@@ -53,14 +54,20 @@ export default function TemperatureConversion(props) {
               </li>
               <li>
                 <strong>Max: </strong>
-                <span id="max-temp">{Math.round(props.maxTempCelsius)}°C</span>
+                <span id="max-temp">
+                  {Math.round(props.maxTempCelsius)}
+                  <sup>°C</sup>
+                </span>
                 <span className="unit" id="max-temp-unit">
                   {" "}
                 </span>{" "}
               </li>
               <li>
                 <strong>Min: </strong>
-                <span id="min-temp">{Math.round(props.minTempCelsius)}°C</span>
+                <span id="min-temp">
+                  {Math.round(props.minTempCelsius)}
+                  <sup>°C</sup>
+                </span>
                 <span className="unit" id="min-temp-unit">
                   {" "}
                 </span>{" "}

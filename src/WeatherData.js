@@ -62,11 +62,11 @@ export default function WeatherData(props) {
                 </li>
                 <li>
                   <strong>Wind: </strong>
-                  <span id="wind">{props.data.wind}</span> m/s{" "}
+                  <span id="wind">{props.data.wind}</span> m/s
                 </li>
                 <li>
                   <strong>Pressure: </strong>
-                  <span id="pressure">{props.data.pressure}</span>{" "}
+                  <span id="pressure">{props.data.pressure}</span>
                 </li>
               </ul>
             </Col>

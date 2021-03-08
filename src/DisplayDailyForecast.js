@@ -35,7 +35,7 @@ export default function DisplayDailyForecast(props) {
       </span>
       <br />
       {Math.round(props.data.main.temp)}
-      <sup>°C</sup> | {Math.round((props.data.main.temp * 9) / 5) + 32}{" "}
+      <sup>°C</sup> | {Math.round((props.data.main.temp * 9) / 5) + 32}
       <sup>°F</sup>
       <br />
       <br />

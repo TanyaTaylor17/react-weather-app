@@ -5,7 +5,13 @@
   font-family: "Mali", "Segoe UI Emoji";
   padding: 20px;
   margin: 0 auto;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background: radial-gradient(
+    circle at 11.7% 80.6%,
+    rgb(249, 185, 255) 0%,
+    rgb(177, 172, 255) 49.3%,
+    rgb(98, 203, 255) 89%
+  );
+
   border-radius: 10px;
   margin-top: 30px;
   max-width: 80%;
@@ -14,10 +20,10 @@
 
 .App-header {
   font-size: 30px;
-  border: #fbc2eb;
-  background: #fbc2eb;
+  border: #9d65c9;
+  background: #9d65c9;
   border-radius: 10px;
-  color: #9d65c9;
+  color: #ecebeb;
   padding: 10px;
   margin-bottom: 20px;
 }

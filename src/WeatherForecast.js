@@ -37,7 +37,6 @@ export default function WeatherForecast(props) {
             <DisplayHourlyForecast data={forecast.list[3]} />
             <DisplayHourlyForecast data={forecast.list[4]} />
           </Row>
-          <br />
           <hr />
           <Row id="daily-forecast-header">
             <Col id="forecast-header">5 Day Forecast</Col>
